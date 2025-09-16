@@ -23,7 +23,8 @@
         
     <h1 style="text-align: center;" id="city-weather"></h1>
     
-    <script>
+<script>
+
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success, error);
     }
@@ -35,7 +36,6 @@
                 q: position.coords.latitude+","+position.coords.longitude,
                 key: 'b178a853a4174fa4a73132202251009',
                 aqi: 'no'
-                // units : 'cairo'
             },
             success: function(response){
                 window.location.assign = response;
@@ -51,9 +51,9 @@
 
         request.done(function (response) {
             formatSearch(response);
-            //  $('#log_complete').append('<li>'+ response.current.temp_c +'</li>');
+
             setTimeout(function () {
-            console.log("hi");
+                console.log("hi");
                 $("#city-weather").text("");
             }, 1000);
             setTimeout(function () { success(position); }, 1000);
@@ -65,12 +65,12 @@
             var city_weather = jsonOjbect.current.temp_c;
             $("#city-weather").text(city_weather);
         }
-
     }
 
     function error() {
         alert("Sorry, no position available.");
     }
+
 </script>
 
  </body>
